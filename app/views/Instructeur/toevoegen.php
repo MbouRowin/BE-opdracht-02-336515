@@ -19,10 +19,8 @@
     <h2><?= $data['instructeur']->DatumInDienst ?></h2>
     <h2><?= $data['instructeur']->AantalSterren ?></h2>
 
-    <p><a href="/instructeur/toevoegen/<?= $data['instructeur']->Id ?>">Toevoegen voertuig</a></p>
-
     <?php if (empty($data["voertuigen"])) : ?>
-        <h3>Er zijn op dit moment nog geen voertuigen toegewezen aan deze instructeur.</h3>
+        <h3>Er zijn op dit moment nog geen vrije voertuigen.</h3>
     <?php else : ?>
         <table border='1'>
             <thead>
@@ -32,6 +30,7 @@
                 <th>Bouwjaar</th>
                 <th>Brandstof</th>
                 <th>Rijbewijscategorie</th>
+                <th>Toevoegen</th>
             </thead>
             <tbody>
                 <?php foreach ($data['voertuigen'] as $voertuig) : ?>
@@ -43,6 +42,7 @@
                         <td><?= $voertuig->Bouwjaar ?></td>
                         <td><?= $voertuig->Brandstof ?></td>
                         <td><?= $voertuig->Rijbewijscategorie ?></td>
+                        <td><a href="/instructeur/voegtoe/<?= $data['instructeur']->Id ?>/<?= $voertuig->Id ?>">Toevoegen</a></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

@@ -40,4 +40,15 @@ class InstructeurModel
 
         return $this->db->resultSet();
     }
+
+    public function getUnassignedVoertuigen()
+    {
+        $sql = "SELECT * FROM VoertuigInstructeur a
+        LEFT JOIN Voertuig b ON a.VoertuigId = b.Id
+        LEFT JOIN TypeVoertuig c ON b.TypeVoertuigId = c.Id";
+
+        $this->db->query($sql);
+
+        return $this->db->resultSet();
+    }
 }
