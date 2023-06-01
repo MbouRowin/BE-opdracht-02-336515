@@ -42,7 +42,7 @@
                         <td><?= $voertuig->Bouwjaar ?></td>
                         <td><?= $voertuig->Brandstof ?></td>
                         <td><?= $voertuig->Rijbewijscategorie ?></td>
-                        <td><a href="/instructeur/voegtoe/<?= $data['instructeur']->Id ?>/<?= $voertuig->Id ?>">Toevoegen</a></td>
+                        <td><a href="/instructeur/voegToe/<?= $data['instructeur']->Id ?>/<?= $voertuig->Id ?>">Toevoegen</a></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

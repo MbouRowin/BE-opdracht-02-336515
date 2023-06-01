@@ -48,4 +48,18 @@ class Instructeur extends BaseController
 
         $this->view('Instructeur/toevoegen', $data);
     }
+
+    public function voegToe($id)
+    {
+        $instructeur  = $this->instructeurModel->getInstructeurById($id);
+        $voertuigen = $this->instructeurModel->getUnassignedVoertuigen($id);
+
+        $data = [
+            'title' => 'Toevoegen voertuig',
+            'instructeur' => $instructeur,
+            'voertuigen' => $voertuigen,
+        ];
+
+        $this->view('Instructeur/toevoegen', $data);
+    }
 }
