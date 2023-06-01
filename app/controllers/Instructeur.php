@@ -49,17 +49,11 @@ class Instructeur extends BaseController
         $this->view('Instructeur/toevoegen', $data);
     }
 
-    public function voegToe($id)
+    public function voegToe($instructeurId, $voertuigId)
     {
-        $instructeur  = $this->instructeurModel->getInstructeurById($id);
-        $voertuigen = $this->instructeurModel->getUnassignedVoertuigen($id);
+        $this->instructeurModel->insertVoertuig($instructeurId, $voertuigId);
 
-        $data = [
-            'title' => 'Toevoegen voertuig',
-            'instructeur' => $instructeur,
-            'voertuigen' => $voertuigen,
-        ];
-
-        $this->view('Instructeur/toevoegen', $data);
+        header("Refresh: 3; url=/instructeur/gebruikteVoertuigen/" . $instructeurId);
+        echo "Voertuig toegevoegd.";
     }
 }
